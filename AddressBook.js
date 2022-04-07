@@ -206,8 +206,26 @@ function addContact(contact) {
         throw "Contact is Present in the Address Book";
 }
 
+/**
+ *  Function to search contact by city
+ * @param {*} city - we will pass the city to search for contacts
+ * @returns - contacts with specific city
+ */
+function searchContactByCity(city) {
+    return addressBookArray.filter((contact) => contact.city == city);
+  }
+  
+  /**
+   * Function to search contact by state
+   * @param {*} state -  we will pass the state to search for contacts
+   * @returns - contacts with specific state
+   */
+function searchContactByState(state) {
+    return addressBookArray.filter((contact) => contact.state == state);
+  }
+
 let firstContact = new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com");
-let secondContact = new Contact("Anish", "Thomass", "Tanish", "Mumbai", "Maharashtra", "400101", "91-8765432198", "anish@gmail.com");
+let secondContact = new Contact("Anish", "Thomass", "Tanish", "Noida", "Delhi", "400101", "91-8765432198", "anish@gmail.com");
 
 try {
     addressBookArray.push(firstContact);
@@ -222,7 +240,7 @@ editContact("Tom", "Thomas", "address", "Avenue");
 console.log(addressBookArray);
 
 console.log("\nAfter Deleting Contact");
-deleteContact("Anish", "Thomass");
+deleteContact("Anish", "Thomas");
 console.log(addressBookArray);
 
 console.log("\nCount of Contacts : " + addressBookArray.reduce(getCountOfContacts, 0));
@@ -234,3 +252,9 @@ try {
     console.error(e);
 }
 console.log(addressBookArray);
+
+console.log("\nSearch Contact By City");
+console.log(searchContactByCity("Pune"));
+
+console.log("\nSearch Contact By State");
+console.log(searchContactByState("Delhi"));
