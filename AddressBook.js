@@ -211,25 +211,40 @@ function addContact(contact) {
  * @param {*} city - we will pass the city to search for contacts
  * @returns - contacts with specific city
  */
-function searchContactByCity(city) {
-    return addressBookArray.filter((contact) => contact.city == city);
-  }
+ function searchContactByCity(firstName, city) {
+    return addressBookArray.filter((contact) => contact.city == city && contact.firstName == firstName);
+}
   
   /**
    * Function to search contact by state
    * @param {*} state -  we will pass the state to search for contacts
    * @returns - contacts with specific state
    */
-function searchContactByState(state) {
+   function searchContactByState(firstName, state) {
+    return addressBookArray.filter((contact) => contact.state == state && contact.firstName == firstName);
+}
+
+/**
+ * Function to view contact by city
+ */
+function viewContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city);
+}
+
+function viewContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state);
-  }
+}
 
 let firstContact = new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com");
 let secondContact = new Contact("Anish", "Thomass", "Tanish", "Noida", "Delhi", "400101", "91-8765432198", "anish@gmail.com");
+let thirdContact = new Contact("Nikhil", "Jadhav", "NLStreets", "NewYork", "UnitedStates", "375621", "91-4567431975", "nikhil@gmail.com");
+let fourthContact = new Contact("Pranav", "Shinde", "Burj", "Dubai", "Arab", "400101", "91-8765432198", "anish@gmail.com");
 
 try {
     addressBookArray.push(firstContact);
     addressBookArray.push(secondContact);
+    addressBookArray.push(thirdContact);
+    addressBookArray.push(fourthContact);
 } catch (e) {
     console.error(e);
 }
@@ -253,8 +268,15 @@ try {
 }
 console.log(addressBookArray);
 
-console.log("\nSearch Contact By City");
-console.log(searchContactByCity("Pune"));
+console.log("\nSearch Tom In City - Pune");
+console.log(searchContactByCity("Tom", "Pune"));
 
-console.log("\nSearch Contact By State");
-console.log(searchContactByState("Delhi"));
+console.log("\nSearch Anish In State - Delhi");
+console.log(searchContactByState("Anish", "Delhi"));
+
+
+console.log("\nView Contacts By City : Dubai \n" );
+console.log(viewContactsByCity("Dubai"));
+
+console.log("\nView Contacts By State : UnitedStates \n" );
+console.log(viewContactsByState("UnitedStates"));
