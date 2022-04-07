@@ -172,6 +172,19 @@ class Contact{
      }
  }
 
+ /**
+  *  Function to delete a contact
+  * @param {} firstName - We will pass the first name of the contact to delete
+  * @param {*} lastName - We will pass the last name of the contact to delete
+  */
+ function deleteContact(firstName, lastName){
+    if(contactExists(firstName, lastName)){
+        addressBookArray = addressBookArray.filter((contact) => contact.firstName != firstName && contact.lastName != lastName);
+    }else{
+        console.log("Contact Does Not Exist");
+    }
+}
+
 try{
     addressBookArray.push(new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com"));
 }catch(e){
@@ -186,4 +199,8 @@ console.log(addressBookArray);
 
 console.log("\nAfter Editing Contact")
 editContact("Tom", "Thomas", "address", "Avenue");
+console.log(addressBookArray);
+
+console.log("\nAfter Deleting Contact");
+deleteContact("Anish", "Thomass");
 console.log(addressBookArray);
