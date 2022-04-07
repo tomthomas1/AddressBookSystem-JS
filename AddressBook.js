@@ -184,6 +184,16 @@ class Contact{
         console.log("Contact Does Not Exist");
     }
 }
+/**
+ * Function to count the contacts in the array
+ * We have used the reduce method to call the specified callback function for all the elements in an array.
+ * @param {*} count - count of contact
+ * @returns - total count
+ */
+function getCountOfContacts(count) {
+    count += 1;
+    return count;
+}
 
 try{
     addressBookArray.push(new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com"));
@@ -204,3 +214,5 @@ console.log(addressBookArray);
 console.log("\nAfter Deleting Contact");
 deleteContact("Anish", "Thomass");
 console.log(addressBookArray);
+
+console.log("\nCount of Contacts : " + addressBookArray.reduce(getCountOfContacts, 0));
