@@ -263,6 +263,21 @@ function sortAddressBookByName(){
     console.log(addressBookArray);
 }
 
+function sortAddressBookByCity(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.city).localeCompare(secondPerson.city));
+    console.log(addressBookArray);
+}
+
+function sortAddressBookByState(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.state).localeCompare(secondPerson.state));
+    console.log(addressBookArray);
+}
+
+function sortAddressBookByZip(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.zip).localeCompare(secondPerson.zip));
+    console.log(addressBookArray);
+}
+
 let firstContact = new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com");
 let secondContact = new Contact("Anish", "Thomass", "Tanish", "Noida", "Delhi", "400101", "91-8765432198", "anish@gmail.com");
 let thirdContact = new Contact("Nikhil", "Jadhav", "NLStreets", "NewYork", "UnitedStates", "375621", "91-4567431975", "nikhil@gmail.com");
@@ -314,3 +329,12 @@ console.log("\nNumber of Contacts residing in State : Delhi = " + getCountOfCont
 
 console.log("\nContacts In Alphabetical Order");
 sortAddressBookByName();
+
+console.log("\nContacts Sorted Using City");
+sortAddressBookByCity();
+
+console.log("\nContacts Sorted Using State");
+sortAddressBookByState();
+
+console.log("\nContacts Sorted Using Zip");
+sortAddressBookByZip();
