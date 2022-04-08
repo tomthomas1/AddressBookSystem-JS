@@ -235,6 +235,26 @@ function viewContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state);
 }
 
+/**
+ *  Function to get count by city
+ * We are using the filter method and length to get the count.
+ * @param {*} city - will pass the city name
+ * @returns - count of contact in specific city.
+ */
+function getCountOfContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city).length;
+}
+
+/**
+ *  Function to get count by state
+ * We are using the filter method and length to get the count.
+ * @param {*} city - will pass the state name
+ * @returns - count of contact in specific state.
+ */
+function getCountOfContactsByState(state){
+    return addressBookArray.filter((contact) => contact.state == state).length;
+}
+
 let firstContact = new Contact("Tom", "Thomas", "Sparkle", "Pune", "Maharashtra", "410387", "91-9876543219", "tom@gmail.com");
 let secondContact = new Contact("Anish", "Thomass", "Tanish", "Noida", "Delhi", "400101", "91-8765432198", "anish@gmail.com");
 let thirdContact = new Contact("Nikhil", "Jadhav", "NLStreets", "NewYork", "UnitedStates", "375621", "91-4567431975", "nikhil@gmail.com");
@@ -280,3 +300,6 @@ console.log(viewContactsByCity("Dubai"));
 
 console.log("\nView Contacts By State : UnitedStates \n" );
 console.log(viewContactsByState("UnitedStates"));
+
+console.log("\nNumber of Contacts residing in City : Pune = " + getCountOfContactsByCity("Pune"));
+console.log("\nNumber of Contacts residing in State : Delhi = " + getCountOfContactsByState("Delhi"));
